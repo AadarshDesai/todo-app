@@ -1,9 +1,11 @@
 const express = require("express");
 const {createTodo, updateTodo} = require("./type");
 const {todo} = require("./db");
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/todo", async function(req, res){
     const createPayload = req.body;
@@ -46,7 +48,7 @@ app.put("/completed", async function(req, res){
     }
 
     // Update todo in database
-    await todo.update({
+    await todo.updateOne({
         _id: req.body.id
     },{
         completed: true
