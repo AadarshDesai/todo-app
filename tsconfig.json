@@ -1,0 +1,11 @@
+{
+  "extends": "@repo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@db/*": ["packages/db/*"],
+      "@db": ["packages/db/db.ts"],
+      "@repo/common/schema/*": ["packages/common/schema/*"]
+    }
+  }
+}
